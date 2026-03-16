@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qayta | B2B Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">🌱</span>
+                    <span class="logo-text">Qayta</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-view="dashboard">
+                    <span class="material-symbols-rounded">dashboard</span>
+                    <span>Дашборд</span>
+                </a>
+                <a href="#" class="nav-item" data-view="orders">
+                    <span class="material-symbols-rounded">list_alt</span>
+                    <span>Мои заказы</span>
+                </a>
+                <a href="#" class="nav-item" data-view="analytics">
+                    <span class="material-symbols-rounded">bar_chart</span>
+                    <span>Аналитика</span>
+                </a>
+                <a href="#" class="nav-item" data-view="team">
+                    <span class="material-symbols-rounded">group</span>
+                    <span>Сотрудники</span>
+                </a>
+                <div class="nav-spacer"></div>
+                <div class="sidebar-divider">Экосистема</div>
+                <a href="#" class="nav-item simulator-nav" data-view="citizen-app">
+                    <span class="material-symbols-rounded">smartphone</span>
+                    <span>Приложение Жителя</span>
+                </a>
+                <a href="#" class="nav-item simulator-nav" data-view="driver-app">
+                    <span class="material-symbols-rounded">local_shipping</span>
+                    <span>Приложение Водителя</span>
+                </a>
+                <div class="nav-spacer"></div>
+                <a href="#" class="nav-item" data-view="settings">
+                    <span class="material-symbols-rounded">settings</span>
+                    <span>Настройки</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">AM</div>
+                    <div class="user-details">
+                        <span class="user-name">Almas Muratov</span>
+                        <span class="user-role">Прораб (ТОО "Строй")</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-search">
+                    <span class="material-symbols-rounded">search</span>
+                    <input type="text" placeholder="Поиск по заказам...">
+                </div>
+                <div class="header-actions">
+                    <button class="btn-urgent">
+                        <span class="material-symbols-rounded">bolt</span>
+                        Срочный вывоз
+                    </button>
+                    <button class="btn-primary" id="newOrderBtn">
+                        <span class="material-symbols-rounded">add</span>
+                        Новая заявка
+                    </button>
+                    <div class="notifications">
+                        <span class="material-symbols-rounded">notifications</span>
+                        <span class="notification-badge"></span>
+                    </div>
+                </div>
+            </header>
+
+            <div id="view-container">
+                <!-- Dashboard View (Default) -->
+                <section id="dashboard-view" class="view active">
+                    <div class="view-header">
+                        <h1>Обзор эко-активности</h1>
+                        <p>Статистика утилизации за текущий месяц</p>
+                    </div>
+
+                    <div class="banner-section">
+                        <img src="file:///Users/damirsultan/.gemini/antigravity/brain/be0f88a9-a17a-43dc-9c80-4f857aa79db5/clean_city_banner_1773616386071.png" alt="Eco Banner" class="hero-banner">
+                        <div class="banner-overlay">
+                            <h2>Вместе мы делаем Казахстан чище</h2>
+                            <p>Уже 1,200 тонн отходов утилизировано через Qayta</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-icon green">
+                                    <span class="material-symbols-rounded">delete_sweep</span>
+                                </span>
+                                <span class="stat-trend positive">+12%</span>
+                            </div>
+                            <div class="stat-value">45.2 м³</div>
+                            <div class="stat-label">Вывезено отходов</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-icon blue">
+                                    <span class="material-symbols-rounded">energy_savings_leaf</span>
+                                </span>
+                                <span class="stat-trend positive">+5.4%</span>
+                            </div>
+                            <div class="stat-value">120 кг</div>
+                            <div class="stat-label">Экономия CO₂</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-icon yellow">
+                                    <span class="material-symbols-rounded">payments</span>
+                                </span>
+                                <span class="stat-trend neutral">0%</span>
+                            </div>
+                            <div class="stat-value">340 000 ₸</div>
+                            <div class="stat-label">Расходы на утилизацию</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-icon purple">
+                                    <span class="material-symbols-rounded">verified</span>
+                                </span>
+                                <span class="stat-trend positive">18</span>
+                            </div>
+                            <div class="stat-value">95%</div>
+                            <div class="stat-label">Сертифицировано</div>
+                        </div>
+                    </div>
+
+                    <div class="charts-container">
+                        <div class="chart-box large">
+                            <h3>Динамика вывоза</h3>
+                            <div class="chart-placeholder">
+                                <!-- Minimal SVG Chart for Prototype -->
+                                <svg viewBox="0 0 800 200" class="mini-chart">
+                                    <path d="M0,150 Q50,140 100,160 T200,120 T300,140 T400,100 T500,110 T600,80 T700,90 T800,60" fill="none" stroke="#00A859" stroke-width="3"/>
+                                    <circle cx="800" cy="60" r="4" fill="#00A859" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="chart-box small">
+                            <h3>Типы отходов</h3>
+                            <div class="category-list">
+                                <div class="category-item">
+                                    <span class="cat-dot construction"></span>
+                                    <span class="cat-name">Строймусор</span>
+                                    <span class="cat-percent">65%</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="cat-dot furniture"></span>
+                                    <span class="cat-name">Мебель</span>
+                                    <span class="cat-percent">20%</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="cat-dot electronics"></span>
+                                    <span class="cat-name">Электроника</span>
+                                    <span class="cat-percent">15%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recent-orders-section">
+                        <div class="section-header">
+                            <h3>Последние заказы</h3>
+                            <a href="#" class="view-all">Все заказы</a>
+                        </div>
+                        <div class="orders-table-container">
+                            <table class="orders-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Объект</th>
+                                        <th>Тип</th>
+                                        <th>Объем</th>
+                                        <th>Статус</th>
+                                        <th>Действие</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#Q-45832</td>
+                                        <td>ЖК "Алма-Сити"</td>
+                                        <td>Бетон</td>
+                                        <td>3.5 м³</td>
+                                        <td><span class="status-badge completed">Выполнен</span></td>
+                                        <td><button class="btn-icon btn-view-cert"><span class="material-symbols-rounded">verified</span></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#Q-45834</td>
+                                        <td>ТРЦ "Мега"</td>
+                                        <td>Металл</td>
+                                        <td>1.2 м³</td>
+                                        <td><span class="status-badge progress">В пути</span></td>
+                                        <td><button class="btn-icon"><span class="material-symbols-rounded">visibility</span></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#Q-45835</td>
+                                        <td>Офис БЦ "Олимп"</td>
+                                        <td>Мебель</td>
+                                        <td>0.8 м³</td>
+                                        <td><span class="status-badge pending">Ожидание</span></td>
+                                        <td><button class="btn-icon"><span class="material-symbols-rounded">visibility</span></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                
+                <!-- Orders View -->
+                <section id="orders-view" class="view">
+                    <div class="view-header">
+                        <h1>Все заказы</h1>
+                        <p>Управление и история всех заявок компании</p>
+                    </div>
+                    <div class="filter-bar">
+                        <button class="filter-chip active">Все</button>
+                        <button class="filter-chip">Активные</button>
+                        <button class="filter-chip">Завершенные</button>
+                        <div class="spacer"></div>
+                        <input type="date" class="date-filter">
+                    </div>
+                    <div class="orders-table-container">
+                        <table class="orders-table" id="full-orders-table">
+                            <!-- Populated via JS -->
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Analytics View -->
+                <section id="analytics-view" class="view">
+                    <div class="view-header">
+                        <h1>Эко-Аналитика</h1>
+                        <p>Влияние вашей компании на экологию Казахстана</p>
+                    </div>
+                    <div class="analytics-grid">
+                        <div class="chart-box full">
+                            <h3>Объем утилизации (тонны)</h3>
+                            <div class="chart-placeholder large" id="waste-volume-chart"></div>
+                        </div>
+                        <div class="chart-box">
+                            <h3>Структура отходов</h3>
+                            <div id="waste-pie-chart"></div>
+                        </div>
+                        <div class="chart-box">
+                            <h3>Экономия ресурсов</h3>
+                            <ul class="eco-stats-list">
+                                <li><strong>Вода:</strong> 1,200 л</li>
+                                <li><strong>Деревья:</strong> 15 шт</li>
+                                <li><strong>Энергия:</strong> 450 кВт/ч</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Team View -->
+                <section id="team-view" class="view">
+                    <div class="view-header">
+                        <h1>Ваша команда</h1>
+                        <p>Управление пользователями вашей организации</p>
+                    </div>
+                    <div class="team-grid" id="team-list">
+                        <!-- Populated via JS -->
+                    </div>
+                </section>
+
+                <!-- Citizen App Simulation -->
+                <section id="citizen-app-view" class="view simulator-view">
+                    <div class="simulator-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen" id="citizen-screen">
+                                <!-- Mobile UI -->
+                            </div>
+                        </div>
+                        <div class="simulator-info">
+                            <h2>Приложение для Жителя</h2>
+                            <p><strong>Для кого:</strong> Частные лица (Аружан).</p>
+                            <p><strong>Зачем:</strong> Быстрый заказ вывоза мусора (КГО, строймусор) через Kaspi.kz. Гарантия того, что мусор не попадет в степь.</p>
+                            <div class="feature-pills">
+                                <span>3 клика</span>
+                                <span>Фото-ИИ</span>
+                                <span>Kaspi Pay</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Driver App Simulation -->
+                <section id="driver-app-view" class="view simulator-view">
+                    <div class="simulator-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen" id="driver-screen">
+                                <!-- Mobile UI -->
+                            </div>
+                        </div>
+                        <div class="simulator-info">
+                            <h2>Приложение для Водителя</h2>
+                            <p><strong>Для кого:</strong> Самозанятые водители (Ержан), ТОО с автопарком.</p>
+                            <p><strong>Зачем:</strong> Получение стабильных заказов, навигация до полигона, автоматическая оплата и отчетность.</p>
+                            <div class="feature-pills">
+                                <span>Smart-лоты</span>
+                                <span>GPS-трекинг</span>
+                                <span>Мгновенный вывод</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for New Order -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Новая заявка на вывоз</h2>
+            <form id="newOrderForm">
+                <div class="form-group">
+                    <label>Тип отходов</label>
+                    <select required>
+                        <option value="construction">Строительный мусор</option>
+                        <option value="furniture">Мебель</option>
+                        <option value="electronics">Электроника</option>
+                        <option value="other">Другое</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Объект / Адрес</label>
+                    <input type="text" placeholder="Укажите адрес или название объекта" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Примерный объем (м³)</label>
+                        <input type="number" step="0.1" placeholder="0.0" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Дата вывоза</label>
+                        <input type="date" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Фото (необязательно)</label>
+                    <div class="file-upload-box">
+                        <span class="material-symbols-rounded">cloud_upload</span>
+                        <span>Перетащите фото или выберите файл</span>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary full-width">Создать заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Eco-Certificate -->
+    <div id="certModal" class="modal">
+        <div class="modal-content" style="width: 600px;">
+            <span class="close">&times;</span>
+            <div class="certificate-preview">
+                <div class="cert-header">
+                    <div class="cert-title">ЭКО-СЕРТИФИКАТ</div>
+                    <div class="cert-subtitle">№ Q-45832-CERT</div>
+                </div>
+                <div class="cert-body">
+                    <div class="cert-details">
+                        <div class="cert-item">
+                            <label>Организация</label>
+                            <span>ТОО "СтройКом"</span>
+                        </div>
+                        <div class="cert-item">
+                            <label>Дата вывоза</label>
+                            <span>15.03.2026</span>
+                        </div>
+                        <div class="cert-item">
+                            <label>Тип отходов</label>
+                            <span>Строительный (бетон)</span>
+                        </div>
+                        <div class="cert-item">
+                            <label>Объем</label>
+                            <span>3.5 м³</span>
+                        </div>
+                        <div class="cert-item" style="grid-column: span 2;">
+                            <label>Полигон утилизации</label>
+                            <span>Полигон "Алатау", Лицензия №Э-00452</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-footer">
+                    <div class="cert-qr">
+                        <span class="material-symbols-rounded">qr_code_2</span>
+                    </div>
+                    <div class="cert-stamp">
+                        ОДОБРЕНО QAYTA<br>
+                        <span style="font-size: 10px; font-weight: 400; color: var(--text-muted);">Цифровая подпись: B7F2-99A1-CC03</span>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: flex-end;">
+                <button class="btn-urgent" style="border-color: var(--border);">Скачать PDF</button>
+                <button class="btn-primary">Поделиться</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
