@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "qayta-dashboard",
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "style.css", "use": "@vercel/static" },
+    { "src": "app.js", "use": "@vercel/static" },
+    { "src": "mobile_sim.css", "use": "@vercel/static" }
+  ]
+}
